@@ -1,0 +1,55 @@
+main {
+  margin-top: 0;
+  min-height: 100vh;
+
+  background-image: url("./images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Poppins', sans-serif;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: white;
+
+  padding: 10px 40px;
+}
+.logo {
+  color: #63E6D8;
+
+  font-size: 40px;
+  font-weight: 700;
+}
+nav a {
+  color: black;
+  text-decoration: none;
+
+  font-weight: 500;
+}
+h1 {
+  color: white;
+
+  font-size: 72px;
+  font-weight: 700;
+
+  text-align: center;
+
+  width: 1100px;
+
+  margin: 40px auto 0 auto;
+
+  line-height: 1.1;
+}
+p {
+  color: white;
+
+  font-size: 24px;
+  font-weight: 400;
+
+  text-align: center;
+
+  margin-top: 20px;
+}
