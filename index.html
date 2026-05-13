@@ -1,34 +1,105 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<head>
+  <meta charset="UTF-8">
 
-    <title>Tickethack</title>
-      <link rel="stylesheet" href="style.css">
-  </head>
+  <!-- Responsive mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
 
-  <body>
-    <header>
-      <div class="logo">Tickethack</div>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-      <nav>
-        <a href="#">Cart</a>
-        <a href="#">Bookings</a>
-      </nav>
-    </header>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 
-    <main>
-      <h1>Explore the world effortlessly by train!</h1>
+  <title>Tickethack</title>
 
-      <p>
-        Compare, book and enjoy cheap prices for train tickets: your journey
-        starts on Tickethack
-      </p>
-    </main>
-  </body>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header>
+
+    <!-- Logo -->
+    <div class="logo">
+      Tickethack
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+
+      <a href="#">Cart</a>
+
+      <a href="#">Bookings</a>
+
+    </nav>
+
+  </header>
+
+  <!-- =========================
+       MAIN
+  ========================== -->
+
+  <main>
+
+    <!-- Titre -->
+    <h1>
+      Explore the world effortlessly by train!
+    </h1>
+
+    <!-- Sous-titre -->
+    <p class="subtitle">
+      Compare, book and enjoy cheap prices for train tickets:
+      your journey starts on Tickethack.
+    </p>
+
+    <!-- Container des cards -->
+    <div class="cards">
+
+      <!-- =========================
+           CARD RECHERCHE
+      ========================== -->
+
+      <div class="search-card">
+
+        <input type="text" placeholder="Departure">
+
+        <input type="text" placeholder="Arrival">
+
+        <input type="date">
+
+        <button>
+          Search
+        </button>
+
+      </div>
+
+      <!-- =========================
+           CARD RESULTAT
+      ========================== -->
+
+      <div class="result-card">
+
+        <img src="./images/train.png" alt="train">
+
+        <div class="line"></div>
+
+        <p>
+          It's time to book your future trip.
+        </p>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</body>
+
 </html>

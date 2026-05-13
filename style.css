@@ -1,55 +1,224 @@
-main {
-  margin-top: 0;
-  min-height: 100vh;
+/* =========================
+   RESET
+========================= */
 
-  background-image: url("./images/background.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+
+body {
   font-family: 'Poppins', sans-serif;
 }
+
+/* =========================
+   HEADER
+========================= */
+
 header {
+
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
 
   background-color: white;
 
-  padding: 10px 40px;
+  padding: 15px 40px;
 }
+
+/* Logo */
+
 .logo {
+
   color: #63E6D8;
 
-  font-size: 40px;
-  font-weight: 700;
+  font-size: 24px;
+
+  font-weight: bold;
 }
+
+/* Navigation */
+
+nav {
+
+  display: flex;
+
+  gap: 30px;
+}
+
 nav a {
-  color: black;
+
   text-decoration: none;
 
-  font-weight: 500;
+  color: black;
+
+  font-size: 14px;
 }
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+
+  min-height: 100vh;
+
+  background-image: url("./images/background.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+
+  padding-top: 50px;
+
+  text-align: center;
+}
+
+/* =========================
+   TITRE
+========================= */
+
 h1 {
+
   color: white;
 
-  font-size: 72px;
-  font-weight: 700;
+  font-size: 55px;
 
-  text-align: center;
+  width: 70%;
 
-  width: 1100px;
-
-  margin: 40px auto 0 auto;
-
-  line-height: 1.1;
+  margin: auto;
 }
-p {
+
+/* Sous-titre */
+
+.subtitle {
+
   color: white;
 
-  font-size: 24px;
-  font-weight: 400;
-
-  text-align: center;
+  font-size: 20px;
 
   margin-top: 20px;
+}
+
+/* =========================
+   CONTAINER DES CARDS
+========================= */
+
+.cards {
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 40px;
+
+  margin-top: 60px;
+}
+
+/* =========================
+   CARD RECHERCHE
+========================= */
+
+.search-card {
+
+  background-color: white;
+
+  width: 320px;
+
+  padding: 25px;
+
+  border-radius: 10px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+/* Inputs */
+
+.search-card input {
+
+  padding: 15px;
+
+  border: none;
+
+  background-color: #f2f2f2;
+
+  border-radius: 5px;
+}
+
+/* Bouton */
+
+.search-card button {
+
+  padding: 15px;
+
+  border: none;
+
+  background-color: #63E6D8;
+
+  color: white;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+/* =========================
+   CARD RESULTAT
+========================= */
+
+.result-card {
+
+  background-color: white;
+
+  width: 320px;
+
+  padding: 25px;
+
+  border-radius: 10px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+/* Image train */
+
+.result-card img {
+
+  width: 120px;
+}
+
+/* Ligne */
+
+.line {
+
+  width: 80%;
+
+  height: 2px;
+
+  background-color: #63E6D8;
+
+  margin: 40px 0;
+}
+
+/* Texte */
+
+.result-card p {
+
+  color: gray;
 }
