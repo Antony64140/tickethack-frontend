@@ -9,7 +9,7 @@ function displayTrips(trips) {
   container.innerHTML = ""; // reset
   const oldFooter = document.querySelector(".cart-footer");
   if (oldFooter) oldFooter.remove();
-    trips.forEach(trip => {
+  trips.forEach(trip => {
     const div = document.createElement("div");
     const heure = new Date(trip.date.$date).toLocaleTimeString('fr-FR', {
                     hour: '2-digit',
@@ -49,8 +49,12 @@ function compteur() {
 }
 
 function affichageCart() {
+    
+    
     document.querySelector(".CardVide").style.display = totalSel === 0 ? "block" : "none";
     document.querySelector(".connexionCard").style.display = totalSel === 0 ? "none" : "block";
+    console.log(document.querySelector(".CardVide").style.display);
+    console.log(document.querySelector(".connexionCard").style.display);
 }
 
 function addRemove () {
@@ -105,20 +109,26 @@ function addPurchase () {
 window.onload = () => {
     const linkCart = document.getElementById("linkCart");
     linkCart.style.pointerEvents = "none";
-    //linkCart.style.opacity = "0.4";
     linkCart.style.color = "#999";
-// fetch("http://localhost:3000/trip/panier")
-//     .then(res => res.json())
-//     .then(data => {
-//                     if (data.result) {
-//                         displayTrips(data.trips);
-    //                 } else {
-    //                     console.log("Erreur API");
-    //                 }
-    // })
-    // .catch(err => console.error(err));
-    displayTrips(TripsTest);
-    addRemove();
-    affichageCart();
+    fetch("http://localhost:3000/trips/panier")
+       .then(res => res.json())
+       .then(data => {
+                     console.log(data.trips);
+                     
+                     if (data.result) {
+                         displayTrips(data.trips);
+                         addRemove();
+                     } else {
+                          console.log("Erreur MONGODB");
+                     };
+                     affichageCart();
+        })
+        .catch(
+          err => console.error(err)       
+        );
+        
+    //displayTrips(TripsTest);
+    //addRemove();
+    
         
 };

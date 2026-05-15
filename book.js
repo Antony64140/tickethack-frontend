@@ -7,12 +7,11 @@ function displayTrips(trips) {
     container.innerHTML = ""; // reset
     trips.forEach(trip => {
       const div = document.createElement("div");
-      const heure = new Date(trip.date.$date).toLocaleTimeString('fr-FR', {
+      const heure = new Date(trip.date).toLocaleTimeString('fr-FR', {
                     hour: '2-digit',
                     minute: '2-digit'
       });
-      const departureString =  dateDiffToday(trip.date.$date); 
-      
+      const departureString =  dateDiffToday(trip.date); 
       div.classList.add("trip-row");
       div.innerHTML = `
         <p>${trip.departure} > ${trip.arrival}</p>
@@ -36,8 +35,7 @@ function dateDiffToday (dateTrip) {
   if (hours>0) {
     dateDiffString+= (hours===1) ? " one hour" : hours+" hours";
   }
-  console.log(dateDiffString.length);
-  
+    
   if (days === 0 && hours === 0 && diffMs>0 ){
     return  "Run! The train’s leaving without you!"
   } else{
@@ -45,9 +43,10 @@ function dateDiffToday (dateTrip) {
   }
 }
 
-function affichageBook(vide) {
-  document.querySelector(".BookVide").style.display = vide ? "block" : "none";
-  document.querySelector(".connexionBook").style.display = !vide ? "block" : "none";
+function affichageBook(tripsLength) {
+  console.log(tripsLength);  
+  document.querySelector(".BookVide").style.display = tripsLength === 0 ? "block" : "none";
+  document.querySelector(".connexionBook").style.display = tripsLength > 0 ? "block" : "none";
 }
 
 
@@ -56,20 +55,22 @@ window.onload = () => {
     linkBook.style.pointerEvents = "none";
     //linkBook.style.opacity = "0.4";
     linkBook.style.color = "#999";
-    // fetch("http://localhost:3000/trip/Book")
-    //   .then(res => res.json())
-    //   .then(data => {
-    //                   if (data.result) {
-    //                     displayTrips(data.trips);
-    //                     //todo afficher total
-    //                   } else {
-    //                       affichageBook(true);
-    //                     console.log("Erreur API");
-    //                   }
-    //  .catch(err => console.error(err); affichageBook(true););    
-    //   })
-      // .catch(err => console.error(err));
-      displayTrips(TripsTest);
-      affichageBook(!TripsTest);
+    affichageBook(0);
+    fetch("http://localhost:3000/trips/book")
+       .then(res => res.json())
+       .then(data => {if (data.result) {
+                         displayTrips(data.trips);
+                     } else {
+                          console.log("Erreur MONGODB");
+                     };
+                     console.log(data.trips.length);
+                     
+                     affichageBook(data.trips.length);
+        })
+        .catch(
+          err => console.error(err)       
+        );
+      //(TripsTest);
+      //affichageBook(TripsTest.length);
     
 };
