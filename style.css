@@ -99,6 +99,7 @@ h1 {
 /* Image train */
 .result-card img {
   width: 120px;
+  overflow-x: hidden;
 }
 /* Ligne */
 .line {
