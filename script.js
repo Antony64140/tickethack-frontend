@@ -1,108 +1,106 @@
 const searchBtn = document.querySelector('#search-btn');
-
 console.log('JS CONNECTE');
-
 searchBtn.addEventListener('click', async () => {
-
   const departure = document.querySelector('#departure').value.trim();
-
   const arrival = document.querySelector('#arrival').value.trim();
-
   const date = document.querySelector('#date').value;
-
   const resultsContainer = document.querySelector('#results-container');
-
-
   // CHAMPS VIDES
   if (!departure || !arrival || !date) {
-
     resultsContainer.innerHTML = `
-
       <img src="./images/notfound.png" alt="not found">
-
       <div class="line"></div>
-
       <p>No trip found.</p>
-
     `;
-
     return;
   }
-
   try {
-
     const response = await fetch(
-
       `http://localhost:3000/trips?depart=${departure}&arrivee=${arrival}&jour=${date}`
-
     );
-
     const data = await response.json();
-
     console.log(data);
-  
     // AUCUN RESULTAT
     if (!data.result || data.trips.length === 0) {
-
       resultsContainer.innerHTML = `
-
         <img src="./images/notfound.png" alt="not found">
-
         <div class="line"></div>
-
         <p>No trip found.</p>
-
       `;
-
       return;
     }
-
-  
     // RESET
     resultsContainer.innerHTML = '';
-
-  
     // AFFICHAGE TRAJETS
-    data.trips.forEach(trip => {
-
+    let index = 0;
+    data.trips.forEach((trip) => {
       resultsContainer.innerHTML += `
+  <div class="trip-row">
 
-        <div class="trip-row">
+    <p>${trip.departure} > ${trip.arrival}</p>
 
-          <p>
-            ${trip.departure} > ${trip.arrival}
-          </p>
+    <p>${trip.date.$date.slice(11, 16)}</p>
 
-          <p>
-            ${trip.date.$date.slice(11,16)}
-          </p>
+    <p>${trip.price}€</p>
 
-          <p>
-            ${trip.price}€
-          </p>
+    <button 
+      class="book-btn"
+      data-depart="${trip.departure}"
+      data-arrivee="${trip.arrival}"
+      data-jour="${trip.date.$date}"
+      data-prix="${trip.price}"
+    >
+      Book
+    </button>
 
-          <button class="book-btn">
-            Book
-          </button>
-
-        </div>
-
-      `;
+  </div>
+`;
     });
-
+    addEventBook();
   } catch (error) {
-
     console.error(error);
-
     resultsContainer.innerHTML = `
-
       <img src="./images/notfound.png" alt="not found">
-
       <div class="line"></div>
-
-      <p>No trip found.</p>
-
-    `;
+      <p>No trip found.</p>`;
   }
-
 });
+function addEventBook() {
+  const addBooks = document.querySelectorAll('.book-btn');
+
+  for (let i = 0; i < addBooks.length; i++) {
+    addBooks[i].addEventListener('click', async function () {
+      const depart = this.dataset.depart;
+      const arrivee = this.dataset.arrivee;
+      const jour = this.dataset.jour;
+      const prix = this.dataset.prix;
+      console.log({
+        depart,
+        arrivee,
+        jour,
+        prix,
+      });
+
+      try {
+        const response = await fetch('http://localhost:3000/trips/selectrip', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            depart,
+            arrivee,
+            jour,
+            prix,
+          }),
+        });
+
+        const data = await response.json();
+
+        console.log(data);
+      } catch (error) {
+        console.error(error);
+      }
+    });
+  }
+}

@@ -4,32 +4,19 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-
 body {
   font-family: 'Poppins', sans-serif;
 }
-
-
-
 header {
-
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-
-  background-color: white;
-
-  padding: 15px 40px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+background-color: white;
+padding: 15px 40px;
 }
-
-
-
 .logo {
 
-  color: #63E6D8;
+  color: #039788;
 
   font-size: 24px;
 
@@ -121,6 +108,8 @@ h1 {
   flex-direction: column;
 
   gap: 20px;
+  
+  height : 300px
 }
 
 /* Inputs */
@@ -144,7 +133,7 @@ h1 {
 
   border: none;
 
-  background-color: #63E6D8;
+  background-color: #039788;
 
   color: white;
 
@@ -159,7 +148,7 @@ h1 {
   background-color: white;
 
   width: 320px;
-  height: 600px;
+  height: 300px;
   padding: 25px;
   border-radius: 10px;
   overflow-y: auto;
@@ -193,7 +182,8 @@ h1 {
 
 .result-card p {
 
-  color: black;
+  color: rgb(0, 0, 0);
+
 }
 .trip-row {
 
@@ -220,7 +210,7 @@ h1 {
 
   border: none;
 
-  background-color: #63E6D8;
+  background-color: #039788;
 
   color: white;
 
