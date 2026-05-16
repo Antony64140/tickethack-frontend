@@ -21,6 +21,7 @@ padding: 15px 40px;
   font-size: 24px;
 
   font-weight: bold;
+  text-decoration: none;
 }
 
 
@@ -219,4 +220,148 @@ h1 {
   border-radius: 5px;
 
   cursor: pointer;
+}
+
+/* =========================
+   panier.html
+========================= */
+#container {
+  min-height: 100vh;
+  background-color: #F0F2F1;
+  justify-content: center; 
+  align-items: center;
+  display: flex;
+
+}
+.CardVide, .BookVide {
+  background-color: white;
+  justify-content: center;
+  width: 70vw;
+  padding: 25px;
+  text-align: center;
+  border-radius: 10px;
+}
+.connexionBook {
+  background-color: white;
+  justify-content: center;
+  width: 70vw;
+  padding: 25px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.connexionCard {
+  background-color: white;
+  padding: 0;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 70vw;
+}
+.connexionCard > div > p:first-child, 
+#tripscart-container {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.connexionCard > div > p:first-child {
+    padding-top: 20px;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.titreCart{
+  margin-bottom: 20px;
+  text-align: center;
+}
+#tripscart-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.trip-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Espace les éléments aux extrémités */
+    align-items: center; /* Aligne verticalement le texte au milieu de la ligne */
+    padding: 0;
+    background-color: #F0F2F1; /* Optionnel : pour mieux voir la ligne */
+    border-radius: 5px;
+  
+}
+
+.trip-row p:first-child {
+    flex: 1;
+    text-align: left;
+    padding: 0;
+    margin-left: 10px;
+}
+
+.trip-row p:not(first-child) {
+    flex: 1;
+    text-align: center;
+    margin-right: 20px;
+    padding: 0;
+}
+
+.lineGray {
+
+  width: 20%;
+
+  height: 2px;
+
+  background-color: #A8A9AE;
+
+  margin: 0 auto;
+}
+
+#enjoy {
+
+  color: #76988F;
+
+  font-size: 14px;
+
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.deleteTrip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  font-size: 10px;
+  margin: 10px;
+  color: white;
+  background-color: #439E86;
+  border: 1px #439E86;
+  border-radius: 5px;
+  cursor: pointer;    
+}
+.cart-footer {
+    display: flex;
+    justify-content: space-between; /* Écarte le total et le bouton */
+    align-items: center;
+    padding: 20px;
+    background-color: #00153E; /* Une couleur de fond différente pour le distinguer */
+    color: white;
+    margin-top: 20px;
+    width: 100%;
+}
+.cart-footer p{
+    margin: 0;
+}
+
+#purchase-btn {
+    padding: 8px 15px;
+    background-color: #439E86;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
 }
