@@ -11,11 +11,11 @@ function displayTrips(trips) {
   if (oldFooter) oldFooter.remove();
   trips.forEach(trip => {
     const div = document.createElement("div");
-    const heure = new Date(trip.date.$date).toLocaleTimeString('fr-FR', {
+    const heure = new Date(trip.date).toLocaleTimeString('fr-FR', {
                     hour: '2-digit',
                     minute: '2-digit'
     });
-    console.log();
+    console.log(heure);
     
     div.classList.add("trip-row");
     div.innerHTML = `
@@ -96,9 +96,8 @@ function addPurchase () {
 				.then(response => response.json())
 				.then(data => {
 					if (data.result) {
-            affichageCart();
-          }
-  
+            window.location.href = 'panier.html';
+          }  
         })
         .catch(err => console.error(err));       
     };
