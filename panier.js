@@ -96,7 +96,7 @@ function addPurchase () {
 				.then(response => response.json())
 				.then(data => {
 					if (data.result) {
-            window.location.href = 'panier.html';
+            window.location.href = 'book.html';
           }  
         })
         .catch(err => console.error(err));       
