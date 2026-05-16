@@ -91,6 +91,13 @@ function addEventBook() {
         const data = await response.json();
 
         console.log(data);
+        if(data.result === true){
+          window.location.href = 'panier.html';
+        }
+        else{
+          console.log(data.error)
+        }
+
       } catch (error) {
         console.error(error);
       }
