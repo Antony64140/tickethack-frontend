@@ -1,5 +1,5 @@
-const TripsTest = [{"_id": "1","departure":"Paris","arrival":"Marseille","date":{"$date":"2026-05-11T18:42:12.879Z"},"price":72}
-  ,{"_id": "2","departure":"Paris","arrival":"Lyon","date":{"$date":"2026-05-11T18:46:09.648Z"},"price":72}];
+// const TripsTest = [{"_id": "1","departure":"Paris","arrival":"Marseille","date":{"$date":"2026-05-11T18:42:12.879Z"},"price":72}
+//   ,{"_id": "2","departure":"Paris","arrival":"Lyon","date":{"$date":"2026-05-11T18:46:09.648Z"},"price":72}];
 
 let totalSel=0;
 
@@ -15,6 +15,8 @@ function displayTrips(trips) {
                     hour: '2-digit',
                     minute: '2-digit'
     });
+    console.log();
+    
     div.classList.add("trip-row");
     div.innerHTML = `
       <p>${trip.departure} > ${trip.arrival}</p>
@@ -48,9 +50,7 @@ function compteur() {
   return total;  
 }
 
-function affichageCart() {
-    
-    
+function affichageCart() {    
     document.querySelector(".CardVide").style.display = totalSel === 0 ? "block" : "none";
     document.querySelector(".connexionCard").style.display = totalSel === 0 ? "none" : "block";
     console.log(document.querySelector(".CardVide").style.display);
@@ -83,11 +83,11 @@ function addPurchase () {
     for (let i=0; i<document.querySelectorAll('.deleteTrip').length; i++) {
       console.log(document.querySelectorAll('.deleteTrip')[i].id);
       
-      tripBuy[i]+=document.querySelectorAll('.deleteTrip')[i].id;      
+      tripBuy.push(document.querySelectorAll('.deleteTrip')[i].id);      
     };
     console.log(tripBuy);
     
-    if (!tripBuy) {
+    if (tripBuy.length>0) {
       fetch(`http://localhost:3000/trips/buy`, { 
         method: 'PUT',
         headers: {"Content-Type": "application/json",},
@@ -101,7 +101,6 @@ function addPurchase () {
   
         })
         .catch(err => console.error(err));       
-        ;
     };
   })
 };
@@ -112,9 +111,7 @@ window.onload = () => {
     linkCart.style.color = "#999";
     fetch("http://localhost:3000/trips/panier")
        .then(res => res.json())
-       .then(data => {
-                     console.log(data.trips);
-                     
+       .then(data => {                                          
                      if (data.result) {
                          displayTrips(data.trips);
                          addRemove();
@@ -128,7 +125,5 @@ window.onload = () => {
         );
         
     //displayTrips(TripsTest);
-    //addRemove();
-    
-        
+    //addRemove();        
 };

@@ -4,62 +4,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <!-- Police Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-
   <title>Tickethack</title>
-
 </head>
 
 <body>
-
   <header>
-
     <!-- Logo -->
     <div class="logo">
       Tickethack
     </div>
-
     <!-- Navigation -->
     <nav>
-
       <a href="panier.html">Cart</a>
-
       <a href="book.html">Bookings</a>
-
     </nav>
-
   </header>
-
   <main>
-
     <h1>
       Explore the world effortlessly by train!
     </h1>
-
     <!-- Sous-titre -->
-
     <p class="subtitle">
       Compare, book and enjoy cheap prices for train tickets:
       your journey starts on Tickethack.
     </p>
-
-    
-         <!-- CONTAINER DES 2 CARDS -->
-
+    <!-- CONTAINER DES 2 CARDS -->
     <div class="cards">
-
       <!-- CARD RECHERCHE -->
-
       <div class="search-card">
-
         <!-- Input départ -->
         <input
           id="departure"
@@ -67,7 +45,6 @@
           placeholder="Departure"
           pattern="[A-Za-zÀ-ÿ\s]+"
         >
-
         <!-- Input arrivée -->
         <input
           id="arrival"
@@ -75,55 +52,31 @@
           placeholder="Arrival"
           pattern="[A-Za-zÀ-ÿ\s]+"
         >
-
         <!-- Input date -->
         <input
           id="date"
           type="date"
         >
-
         <!-- Bouton recherche -->
         <button id="search-btn">
-
           Search
-
         </button>
-
       </div>
 
       <!-- CARD RESULTATS -->
-
       <div class="result-card">
-
         <div id="results-container">
-
           <!-- État vide par défaut -->
-
-          <img
-            src="./images/train.png"
-            alt="train"
-          >
-
+          <img src="./images/train.png" alt="train">
           <!-- Ligne -->
-
           <div class="line"></div>
-
           <!-- Texte -->
-
-          <p>
-            It's time to book your future trip.
-          </p>
-
+          <p>It's time to book your future trip.</p>
         </div>
-
       </div>
-
     </div>
-
   </main>
-
   <script src="script.js"></script>
-
 </body>
 
 </html>

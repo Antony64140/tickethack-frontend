@@ -1,6 +1,3 @@
-const TripsTest = [{"_id": "1","departure":"Paris","arrival":"Marseille","date":{"$date":"2026-05-15T08:30:12.879Z"},"price":72}
-  ,{"_id": "2","departure":"Paris","arrival":"Lyon","date":{"$date":"2026-05-11T18:46:09.648Z"},"price":72}];
-
 function displayTrips(trips) {
     const container = document.getElementById("tripsbook-container");
     const card = document.querySelector(".connexionBook > div");
@@ -53,7 +50,6 @@ function affichageBook(tripsLength) {
 window.onload = () => {
     const linkBook = document.getElementById("linkBook");
     linkBook.style.pointerEvents = "none";
-    //linkBook.style.opacity = "0.4";
     linkBook.style.color = "#999";
     affichageBook(0);
     fetch("http://localhost:3000/trips/book")
@@ -70,7 +66,5 @@ window.onload = () => {
         .catch(
           err => console.error(err)       
         );
-      //(TripsTest);
-      //affichageBook(TripsTest.length);
-    
+  
 };

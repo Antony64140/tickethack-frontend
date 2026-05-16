@@ -1,5 +1,4 @@
 const searchBtn = document.querySelector('#search-btn');
-console.log('JS CONNECTE');
 searchBtn.addEventListener('click', async () => {
   const departure = document.querySelector('#departure').value.trim();
   const arrival = document.querySelector('#arrival').value.trim();
@@ -12,6 +11,7 @@ searchBtn.addEventListener('click', async () => {
       <div class="line"></div>
       <p>No trip found.</p>
     `;
+    alert("Please complete all search fields. The database can’t read minds yet")
     return;
   }
   try {
@@ -35,27 +35,20 @@ searchBtn.addEventListener('click', async () => {
     let index = 0;
     data.trips.forEach((trip) => {
       resultsContainer.innerHTML += `
-  <div class="trip-row">
-
-    <p>${trip.departure} > ${trip.arrival}</p>
-
-    <p>${trip.date.$date.slice(11, 16)}</p>
-
-    <p>${trip.price}€</p>
-
-    <button 
-      class="book-btn"
-      data-depart="${trip.departure}"
-      data-arrivee="${trip.arrival}"
-      data-jour="${trip.date.$date}"
-      data-prix="${trip.price}"
-    >
-      Book
-    </button>
-
-  </div>
-`;
+                                      <div class="trip-row">
+                                        <p>${trip.departure} > ${trip.arrival}</p>
+                                        <p>${trip.date.$date.slice(11, 16)}</p>
+                                        <p>${trip.price}€</p>
+                                        <button 
+                                          class="book-btn"
+                                          data-depart="${trip.departure}"
+                                          data-arrivee="${trip.arrival}"
+                                          data-jour="${trip.date.$date}"
+                                          data-prix="${trip.price}">Book
+                                        </button>
+                                      </div>`;
     });
+    resultsContainer.scrollTo({top: 0, behavior: "smooth"});
     addEventBook();
   } catch (error) {
     console.error(error);
