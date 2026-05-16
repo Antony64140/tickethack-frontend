@@ -94,7 +94,7 @@ h1 {
 }
 
 #results-container {
-  padding-top: 65px;
+  overflow-x: hidden;
 }
 /* Image train */
 .result-card img {
