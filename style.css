@@ -91,6 +91,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow-x: hidden;
 }
 
 #results-container {
@@ -99,7 +100,6 @@ h1 {
 /* Image train */
 .result-card img {
   width: 120px;
-  overflow-x: hidden;
 }
 /* Ligne */
 .line {
@@ -127,7 +127,8 @@ h1 {
   border: none;
   background-color: #039788;
   color: white;
-  padding: 8px 15px;
+  padding: 8px 8px;
+  margin-right: 10px;
   border-radius: 5px;
   cursor: pointer;
 }
